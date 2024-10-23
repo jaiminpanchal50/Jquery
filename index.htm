@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://www.tutorialspoint.com/jquery/jquery-3.6.0.js"></script>
+    <style>
+        .big {
+            font-weight: bold;
+            font-size: 60px;
+        }
+
+        .small {
+            font-weight: normal;
+            font-size: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>H2</h2>
+    <h4>h4</h4>
+    <div class="h1">
+        <h1>h1</h1>
+    </div>
+    <div class="h5">
+        <h5>h5</h5>
+    </div>
+
+    <h3>h3</h3>
+
+    <div class="prepent-box">
+        <h1>Prepent Method</h1>
+        <button class="prepent">prepent</button>
+    </div>
+    <div class="before-box">
+        <button class="before">before</button>
+    </div>
+    <script>
+        // Here $() is called factory function
+        $(document).ready(function () {
+
+            //             Mouse Events	   Keyboard Events	  Form Events	   Document Events
+            //              click	        keypress	        submit	        load
+            //             dblclick	         keydown	         change	         resize
+            //              hover	          keyup	             select	          scroll
+            //               mousedown		                      blur	           unload
+            //                mouseup		                      focusin	       ready
+
+
+
+            // Example: Click event on h2 element
+            $("h2").click(function () { // also we target element using $("className,id,tag")
+                $(this).animate({ fontSize: "2em" }, 1000);
+                $(this).fadeOut(500);
+                $(this).fadeIn(500);
+                $(this).animate({ fontSize: "1em" }, 1000);
+                $(this).css("color", "red");
+                $('h1').css({"background-color":"green","color":"red"});
+                // $('h3').hide();
+                // $('h3').show();
+                $('h3').toggle();
+            })
+            $('h4').css('color', "blue");
+
+            // Example: hover event on h1  element
+            // $("h1").hover(function () {   // $("div").bind('click', function (){} also u use bind method
+            //     $(this).css("color", "yellow");
+            // }, function () {
+            //     $(this).css("background-color", "lightblue");
+            // });
+
+            // bind method
+            // $("h1").bind('click', function () {
+            //     $(this).animate({ fontSize: "6em" }, 1000);
+            //     /// get content of element
+            //     alert($('h2').html());
+            // });
+
+            // $("h1").on('click', function () {
+            //     $(this).animate({ fontSize: "1em" }, 1000);
+            // });
+
+            // Example: load event on document
+            $(document).ready(function () {
+                console.log("Document is loaded");
+            });
+
+            // Example: window resize event
+            $(window).resize(function () {
+                console.log("Window resized");
+            });
+
+
+            // append element  // in append method first we select element which u want to appent the content after select element we append content
+            // The jQuery append() method adds the content at the end of the matched each element(s). You can also append multiple elements in a single function call.
+            //  syntax is $(selector).append(content, [content]);
+            $(".h1").append("<p>This is appended paragraph</p>");
+
+
+
+            /// appendTo() Method
+            // The jQuery appendTo() method inserts the matched element(s) to the end of the specified container.
+            // syntax is $(content).appendTo(selector);
+            $('<p>Hello world </p>').appendTo('h5')
+
+
+            // insertAfter() Method   /// insert before nd insert after both change the palce of the selector
+            // $('h3').click(function () {
+            //     $('h3').insertAfter('h2')
+
+            // })
+
+            /// after method
+            // $('h3').click(function () {
+            //     $('h3').after('h2')
+
+            // })
+
+            //// inertAfter nd appent both methods set value at the end of the content
+
+
+            //// Example: prepent method
+            // $(".before").click(function () {
+            //     $('<p>This is prepended paragraph</p>').prependTo('.prepent-box');
+            // })
+
+
+            // before method
+            $('h3').click(function () {
+                $('h3').before('h2')
+
+            })
+
+
+            /// insertBefore method  /// insert before nd insert after both change the palce of the selector
+            $('h3').click(function () {
+                $('h3').insertBefore('h2')
+
+            })
+
+
+            //// remove() and empty() methods are use to remove the html element 
+
+
+            // $('.prepent').click(function () {
+            //     // $('.prepent-box h1').remove()
+            //     $('.prepent-box h1').empty();
+            // })
+
+            /// replaceWith() Method //// $(selector).replaceWith(newContent);
+            $('.prepent').click(function () {
+                $('.prepent-box h1').replaceWith('<h6 class="h6">I am H6 With class </h6>')
+            })
+
+            ///// Jquery class css
+            // jQuery provides three methods addClass(), removeClass() and toggleClass() to manipulate CSS classes of the elements.
+            // $(selector).addClass(className className);
+
+
+            /// addClass() Method 
+                $('h5').addClass('big');
+    
+
+                /// removeClass() Method
+                $('h5').removeClass('big');
+
+                /// toggleClass() Method
+                $('h5').toggleClass('big');
+
+
+
+       
+        });
+    </script>
+</body>
+
+</html>

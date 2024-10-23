@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="https://code.jquery.com/jquery-2.1.3.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+</head>
+
+<body>
+    <div class="container mt-5">
+        <form class="form-inline" id="loginForm">
+            <input type="text" class="form-control mx-2" id="loginUsername" placeholder="Enter User Name">
+            <input type="password" class="form-control mx-2" id="loginPassword" placeholder="Enter Password">
+            <button id="loginBtn" type="button" class="btn btn-primary mx-2">Login</button>
+            <button id="registerBtn" type="button" class="btn btn-primary mx-2">Register</button>
+        </form>
+
+    </div>
+
+    <script type="text/javascript">
+
+        $(function () {
+            $("#loginBtn").click(function () {
+                var loginUsername = $("#loginUsername").val();
+                var loginPassword = $("#loginPassword").val();
+                var storedData = $.cookie("userData");
+                var userData = JSON.parse(storedData);
+                if (loginUsername === userData.username && loginPassword === userData.password) {
+                    sessionStorage.setItem('loggedIn', true);
+                    window.location.href = "index.html";
+
+
+                } else {
+                    alert("Invalid Username or Password")
+                }
+
+            });
+        });
+
+
+        /////3
+
+        // $(function () {
+        //     $("#loginBtn").click(function () {
+        //         var loginUsername = $("#loginUsername").val();
+        //         var loginPassword = $("#loginPassword").val();
+
+        //             if (loginUsername === $.cookie("username") && loginPassword === $.cookie("password")) {
+        //                window.location.href = "dashboard.html"; 
+        //             } else {
+        //                 alert("Invalid Username or Password")
+        //             }
+
+        //     });
+        // });
+
+
+
+        ///// get data from local storage and match against the username and pass
+        // $(function () {
+        //     $("#loginBtn").click(function () {
+        //         var loginUsername = $("#loginUsername").val();
+        //         var loginPassword = $("#loginPassword").val();
+
+        //         var storedData = localStorage.getItem("userData");
+
+
+        //             var userData = JSON.parse(storedData);
+
+        //             if (loginUsername === userData.username && loginPassword === userData.password) {
+        //                 window.location.href = "dashboard.html"; 
+        //             } else {
+        //                 alert("Invalid Username or Password")
+        //             }
+
+
+        //     });
+        // });
+
+        ///registerbtn
+        $(function () {
+            $("#registerBtn").click(function () {
+                window.location.href = "signup.html";
+            });
+        });
+
+    </script>
+</body>
+
+</html>
